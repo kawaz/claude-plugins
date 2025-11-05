@@ -5,7 +5,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./debug.sh"
+          "command": "./hooks-debugger.sh"
         }
       ]
     }
@@ -16,7 +16,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./debug.sh"
+          "command": "./hooks-debugger.sh"
         }
       ]
     }
@@ -27,7 +27,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./debug.sh"
+          "command": "./hooks-debugger.sh"
         }
       ]
     }
@@ -38,7 +38,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./debug.sh"
+          "command": "./hooks-debugger.sh"
         }
       ]
     }
@@ -49,7 +49,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./debug.sh"
+          "command": "./hooks-debugger.sh"
         }
       ]
     }
@@ -60,7 +60,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./debug.sh"
+          "command": "./hooks-debugger.sh"
         }
       ]
     }
@@ -71,7 +71,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./debug.sh"
+          "command": "./hooks-debugger.sh"
         }
       ]
     }
@@ -82,7 +82,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./debug.sh"
+          "command": "./hooks-debugger.sh"
         }
       ]
     }
@@ -93,7 +93,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./debug.sh"
+          "command": "./hooks-debugger.sh"
         }
       ]
     }
