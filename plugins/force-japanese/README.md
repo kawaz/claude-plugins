@@ -14,7 +14,7 @@ The plugin hooks into the `SessionStart` event with matcher `"compact"` and inje
 
 ```bash
 /plugin marketplace add kawaz/claude-plugins
-/plugin install force-japanese@kawaz-plugins
+/plugin install force-japanese@kawaz-claude-plugins
 ```
 
 ## Configuration

@@ -19,7 +19,7 @@ The plugin hooks into the `PreToolUse` event for Bash tool calls and checks if t
 
 ```bash
 /plugin marketplace add kawaz/claude-plugins
-/plugin install force-uv@kawaz-plugins
+/plugin install force-uv@kawaz-claude-plugins
 ```
 
 ## Configuration

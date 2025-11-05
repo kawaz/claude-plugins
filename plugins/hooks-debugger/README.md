@@ -26,7 +26,7 @@ The plugin hooks into all 9 available hook events and logs the complete input JS
 
 ```bash
 /plugin marketplace add kawaz/claude-plugins
-/plugin install hooks-debugger@kawaz-plugins
+/plugin install hooks-debugger@kawaz-claude-plugins
 ```
 
 ## Usage

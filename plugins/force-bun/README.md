@@ -21,7 +21,7 @@ Note: `npm version` is allowed since it has no Bun equivalent.
 
 ```bash
 /plugin marketplace add kawaz/claude-plugins
-/plugin install force-bun@kawaz-plugins
+/plugin install force-bun@kawaz-claude-plugins
 ```
 
 ## Configuration

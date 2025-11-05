@@ -9,7 +9,7 @@ A collection of useful Claude Code plugins.
 /plugin marketplace add kawaz/claude-plugins
 
 # Install plugins (see each plugin's README for details)
-/plugin install <plugin-name>@kawaz-plugins
+/plugin install <plugin-name>@kawaz-claude-plugins
 ```
 
 ## Available Plugins
