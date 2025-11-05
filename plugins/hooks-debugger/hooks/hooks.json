@@ -32,6 +32,10 @@
         "hooks": [
           {
             "type": "command",
+            "command": "echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"PreToolUse\\\",\\\"additionalContext\\\":\\\"PWD=$(pwd)\\\"}}\""
+          },
+          {
+            "type": "command",
             "command": "./hooks/hooks-debugger.sh"
           }
         ]
