@@ -4,13 +4,30 @@ A collection of useful Claude Code plugins.
 
 ## Installation
 
-```bash
-# Add marketplace
-/plugin marketplace add kawaz/claude-plugins
+### 1. Add Marketplace
 
-# Install specific plugins
-/plugin install <plugin-name>@kawaz-plugins
+First, add this marketplace to Claude Code:
+
+```bash
+/plugin marketplace add kawaz/claude-plugins
 ```
+
+### 2. Install Plugins
+
+Then install the plugins you want:
+
+```bash
+# Install all plugins
+/plugin install force-japanese@kawaz-plugins
+/plugin install force-bun@kawaz-plugins
+/plugin install force-uv@kawaz-plugins
+/plugin install hooks-debugger@kawaz-plugins
+
+# Or install specific ones
+/plugin install force-japanese@kawaz-plugins
+```
+
+After installation, restart Claude Code to activate the plugins.
 
 ## Available Plugins
 
