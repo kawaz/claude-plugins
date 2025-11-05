@@ -5,7 +5,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./pre-tool-use.sh"
+          "command": "./force-uv.sh"
         }
       ]
     }

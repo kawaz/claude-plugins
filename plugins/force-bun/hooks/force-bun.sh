@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
 suggest_deny() {
@@ -17,13 +17,17 @@ suggest_deny() {
 
 # 標準入力から JSON を読み取り
 input=$(</dev/stdin)
-command=$(echo "$input" | jq -r '.tool_input.command // empty')
+# コマンドチェックの際に複数行がある場合は最初の行のみを使用
+command=$(jq -r '.tool_input.command // empty' <<< "$input")
+
+# 引用符以降は無視する（コミットメッセージとかのコメント文字列に含む場合などの誤検知回避のため）
+command=${command%%[\'\"]*}
 
 # コマンドが空の場合は何もチェックしない
 [[ -z "$command" ]] && exit 0
 
 # Bun に置き換えを推奨
-if [[ $command =~ (npx|npm\ x|npm\ exec) ]]; then
+if [[ $command =~ (^| )(npx|npm\ x|npm\ exec)( ) ]]; then
     suggest_deny "Use 'bunx' instead of npx, npm x, or npm exec"
 fi
 
@@ -33,7 +37,7 @@ if [[ $command =~ npm\ version ]]; then
 fi
 
 # その他の npm コマンドは Bun を推奨
-if [[ $command =~ npm ]]; then
+if [[ $command =~ (^| )npm( ) ]]; then
     suggest_deny "Use 'bun' instead of npm"
 fi
 

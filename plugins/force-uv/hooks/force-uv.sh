@@ -23,19 +23,19 @@ command=$(echo "$input" | jq -r '.tool_input.command // empty')
 [[ -z "$command" ]] && exit 0
 
 # UV に置き換えを推奨
-if [[ $command =~ pip3?.*\ install ]]; then
+if [[ $command =~ (^| )pip3?.*\ install ]]; then
     suggest_deny "Use 'uv add' instead of pip install"
 fi
 
-if [[ $command =~ python.*\ -m\ venv ]]; then
+if [[ $command =~ (^| )python.*\ -m\ venv ]]; then
     suggest_deny "Use 'uv init' instead of python -m venv"
 fi
 
-if [[ $command =~ virtualenv ]]; then
+if [[ $command =~ (^| )virtualenv ]]; then
     suggest_deny "Use 'uv venv' instead of virtualenv"
 fi
 
-if [[ $command =~ pipx ]]; then
+if [[ $command =~ (^| )pipx ]]; then
     suggest_deny "Use 'uvx' instead of pipx"
 fi
 
