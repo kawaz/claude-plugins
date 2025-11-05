@@ -5,6 +5,12 @@
 log_dir="${TMPDIR:-/tmp}/claude-hooks-debugger"
 log_file="$log_dir/$(date +"%Y-%m-%d").jsonl"
 
+# デバッグ: スクリプトが実行されたことを記録
+echo "$(date +"%Y-%m-%d %H:%M:%S") - Script executed" >> "$log_dir/debug.log" 2>/dev/null || {
+    mkdir -p "$log_dir"
+    echo "$(date +"%Y-%m-%d %H:%M:%S") - Script executed" >> "$log_dir/debug.log"
+}
+
 # 標準入力から JSON を読み取り
 input=$(cat)
 
@@ -25,6 +31,17 @@ if [[ $? -ne 0 ]]; then
     mkdir -p "$log_dir"
     echo "$output" >> "$log_file"
 fi
+
+# デバッグ用: フックが実行されたことを通知
+jq -cn \
+    --arg event "$hook_event_name" \
+    --arg logfile "$log_file" \
+    '{
+        "hookSpecificOutput": {
+            "hookEventName": $event,
+            "additionalContext": ("Logged to " + $logfile)
+        }
+    }'
 
 # 常に正常終了
 exit 0
