@@ -17,6 +17,7 @@ A collection of useful Claude Code plugins.
 /plugin install force-japanese@kawaz-plugins
 /plugin install force-bun@kawaz-plugins
 /plugin install force-uv@kawaz-plugins
+/plugin install hooks-debugger@kawaz-plugins
 ```
 
 ## Available Plugins
@@ -74,6 +75,26 @@ The plugin hooks into the `PreToolUse` event for Bash tool calls and checks if t
 /plugin install force-uv@kawaz-plugins
 ```
 
+### hooks-debugger
+
+Logs all hook events to JSONL files for debugging and development purposes.
+
+**Problem it solves:**
+When developing plugins or debugging hook behavior, it's useful to see exactly what data is being passed to hooks. This plugin captures all hook events and saves them to files for inspection.
+
+**How it works:**
+The plugin hooks into all available hook events (`SessionStart`, `PreToolUse`, `PostToolUse`) and logs the complete input JSON to `~/.claude/debug-logs/{hook_event_name}.jsonl`. Each log entry includes a timestamp. The plugin always exits successfully (exit 0) so it never interferes with Claude's normal operation.
+
+**Log files:**
+- `~/.claude/debug-logs/SessionStart.jsonl`
+- `~/.claude/debug-logs/PreToolUse.jsonl`
+- `~/.claude/debug-logs/PostToolUse.jsonl`
+
+**Installation:**
+```bash
+/plugin install hooks-debugger@kawaz-plugins
+```
+
 ## Development
 
 ### Repository Structure
@@ -95,12 +116,18 @@ kawaz/claude-plugins/
 │   │   └── hooks/
 │   │       ├── hooks.json
 │   │       └── pre-tool-use.sh
-│   └── force-uv/                  # UV enforcement plugin
+│   ├── force-uv/                  # UV enforcement plugin
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   └── hooks/
+│   │       ├── hooks.json
+│   │       └── pre-tool-use.sh
+│   └── hooks-debugger/            # Hook debugging plugin
 │       ├── .claude-plugin/
 │       │   └── plugin.json
 │       └── hooks/
 │           ├── hooks.json
-│           └── pre-tool-use.sh
+│           └── debug.sh
 └── README.md
 ```
 

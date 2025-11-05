@@ -23,6 +23,11 @@
       "name": "force-uv",
       "source": "./plugins/force-uv",
       "description": "Suggests using UV instead of pip/pipx/venv commands in Bash tool calls"
+    },
+    {
+      "name": "hooks-debugger",
+      "source": "./plugins/hooks-debugger",
+      "description": "Logs all hook events to JSONL files for debugging purposes"
     }
   ]
 }
