@@ -83,7 +83,7 @@ Logs all hook events to JSONL files for debugging and development purposes.
 When developing plugins or debugging hook behavior, it's useful to see exactly what data is being passed to hooks. This plugin captures all hook events and saves them to files for inspection.
 
 **How it works:**
-The plugin hooks into all 9 available hook events and logs the complete input JSON to `~/.claude/debug-logs/{hook_event_name}.jsonl`. Each log entry includes a timestamp. The plugin always exits successfully (exit 0) so it never interferes with Claude's normal operation.
+The plugin hooks into all 9 available hook events and logs the complete input JSON to daily JSONL files. Each log entry includes a timestamp. The plugin always exits successfully (exit 0) so it never interferes with Claude's normal operation. Log files older than 3 days are automatically cleaned up.
 
 **Supported hook events:**
 - `SessionStart` - Session initialization/resumption
@@ -97,7 +97,12 @@ The plugin hooks into all 9 available hook events and logs the complete input JS
 - `SubagentStop` - Subagent (Task tool) completion
 
 **Log files location:**
-- `~/.claude/debug-logs/{hook_event_name}.jsonl`
+- `${TMPDIR:-/tmp}/claude-hooks-debugger/YYYY-MM-DD.jsonl`
+
+**View logs:**
+```bash
+cat "${TMPDIR:-/tmp}/claude-hooks-debugger/$(date +%Y-%m-%d).jsonl" | jq
+```
 
 **Installation:**
 ```bash
@@ -118,25 +123,25 @@ kawaz/claude-plugins/
 │   │   │   └── plugin.json
 │   │   └── hooks/
 │   │       ├── hooks.json
-│   │       └── session-start.sh
+│   │       └── force-japanese.sh
 │   ├── force-bun/                 # Bun enforcement plugin
 │   │   ├── .claude-plugin/
 │   │   │   └── plugin.json
 │   │   └── hooks/
 │   │       ├── hooks.json
-│   │       └── pre-tool-use.sh
+│   │       └── force-bun.sh
 │   ├── force-uv/                  # UV enforcement plugin
 │   │   ├── .claude-plugin/
 │   │   │   └── plugin.json
 │   │   └── hooks/
 │   │       ├── hooks.json
-│   │       └── pre-tool-use.sh
+│   │       └── force-uv.sh
 │   └── hooks-debugger/            # Hook debugging plugin
 │       ├── .claude-plugin/
 │       │   └── plugin.json
 │       └── hooks/
 │           ├── hooks.json
-│           └── debug.sh
+│           └── hooks-debugger.sh
 └── README.md
 ```
 
