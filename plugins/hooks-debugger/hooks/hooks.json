@@ -6,6 +6,10 @@
         "hooks": [
           {
             "type": "command",
+            "command": "echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"SessionStart\\\",\\\"additionalContext\\\":\\\"PWD=$(pwd) | Files: $(ls -la | head -5)\\\"}}\""
+          },
+          {
+            "type": "command",
             "command": "./hooks/hooks-debugger.sh"
           }
         ]
