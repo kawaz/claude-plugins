@@ -1,7 +1,7 @@
 {
   "name": "force-uv",
   "description": "Suggests using UV instead of pip/pipx/venv commands in Bash tool calls",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "kawaz"
   }
