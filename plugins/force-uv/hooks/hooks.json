@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "./force-uv.sh"
+            "command": "./hooks/force-uv.sh"
           }
         ]
       }

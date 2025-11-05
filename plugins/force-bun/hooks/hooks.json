@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "./force-bun.sh"
+            "command": "./hooks/force-bun.sh"
           }
         ]
       }

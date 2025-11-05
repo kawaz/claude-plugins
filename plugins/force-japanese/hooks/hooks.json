@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "./force-japanese.sh"
+            "command": "./hooks/force-japanese.sh"
           }
         ]
       }
