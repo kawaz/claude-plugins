@@ -1,0 +1,13 @@
+{
+  "name": "force-japanese",
+  "displayName": "Force Japanese Language",
+  "description": "Forces Claude Code to use Japanese language even after SessionStart:compact resets",
+  "version": "0.1.0",
+  "author": "kawaz",
+  "hooks": {
+    "SessionStart": {
+      "script": "./hooks/session-start.sh",
+      "description": "Injects Japanese language context on session start"
+    }
+  }
+}

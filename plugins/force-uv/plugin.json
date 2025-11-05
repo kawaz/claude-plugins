@@ -1,0 +1,14 @@
+{
+  "name": "force-uv",
+  "displayName": "Force UV Usage",
+  "description": "Suggests using UV instead of pip/pipx/venv commands in Bash tool calls",
+  "version": "0.1.0",
+  "author": "kawaz",
+  "hooks": {
+    "PreToolUse": {
+      "script": "./hooks/pre-tool-use.sh",
+      "description": "Intercepts Bash tool calls to suggest UV alternatives",
+      "matcher": "Bash"
+    }
+  }
+}

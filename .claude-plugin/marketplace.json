@@ -1,0 +1,7 @@
+{
+  "name": "kawaz-plugins",
+  "displayName": "Kawaz's Claude Plugins",
+  "description": "A collection of useful Claude Code plugins by kawaz",
+  "author": "kawaz",
+  "repository": "https://github.com/kawaz/claude-plugins"
+}
