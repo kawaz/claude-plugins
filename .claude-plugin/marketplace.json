@@ -1,7 +1,28 @@
 {
   "name": "kawaz-plugins",
-  "displayName": "Kawaz's Claude Plugins",
-  "description": "A collection of useful Claude Code plugins by kawaz",
-  "author": "kawaz",
-  "repository": "https://github.com/kawaz/claude-plugins"
+  "owner": {
+    "name": "kawaz",
+    "email": "kawaz@github.com"
+  },
+  "metadata": {
+    "description": "A collection of useful Claude Code plugins by kawaz",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "force-japanese",
+      "source": "./plugins/force-japanese",
+      "description": "Forces Claude Code to use Japanese language even after SessionStart:compact resets"
+    },
+    {
+      "name": "force-bun",
+      "source": "./plugins/force-bun",
+      "description": "Suggests using Bun instead of npm/npx commands in Bash tool calls"
+    },
+    {
+      "name": "force-uv",
+      "source": "./plugins/force-uv",
+      "description": "Suggests using UV instead of pip/pipx/venv commands in Bash tool calls"
+    }
+  ]
 }

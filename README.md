@@ -84,16 +84,22 @@ kawaz/claude-plugins/
 │   └── marketplace.json           # Marketplace definition
 ├── plugins/
 │   ├── force-japanese/            # Japanese language plugin
-│   │   ├── plugin.json
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
 │   │   └── hooks/
+│   │       ├── hooks.json
 │   │       └── session-start.sh
 │   ├── force-bun/                 # Bun enforcement plugin
-│   │   ├── plugin.json
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
 │   │   └── hooks/
+│   │       ├── hooks.json
 │   │       └── pre-tool-use.sh
 │   └── force-uv/                  # UV enforcement plugin
-│       ├── plugin.json
+│       ├── .claude-plugin/
+│       │   └── plugin.json
 │       └── hooks/
+│           ├── hooks.json
 │           └── pre-tool-use.sh
 └── README.md
 ```
@@ -101,9 +107,10 @@ kawaz/claude-plugins/
 ### Adding New Plugins
 
 1. Create a new directory under `plugins/`
-2. Add `plugin.json` with plugin metadata
-3. Implement hooks or other plugin features
-4. Update this README
+2. Create `.claude-plugin/plugin.json` with plugin metadata
+3. Implement hooks in `hooks/hooks.json` and corresponding scripts
+4. Update marketplace.json to include the new plugin
+5. Update this README
 
 ## License
 

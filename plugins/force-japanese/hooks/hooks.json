@@ -1,0 +1,13 @@
+{
+  "SessionStart": [
+    {
+      "matcher": "compact",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./session-start.sh"
+        }
+      ]
+    }
+  ]
+}
