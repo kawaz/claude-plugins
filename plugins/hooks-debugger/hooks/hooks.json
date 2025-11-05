@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"SessionStart\\\",\\\"additionalContext\\\":\\\"PWD=$(pwd) | Files: $(ls -la | head -5)\\\"}}\""
+            "command": "jq -cn --arg pwd \"$(pwd)\" '{hookSpecificOutput: {hookEventName: \"SessionStart\", additionalContext: (\"PWD=\" + $pwd)}}'"
           },
           {
             "type": "command",
@@ -32,7 +32,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"PreToolUse\\\",\\\"additionalContext\\\":\\\"PWD=$(pwd)\\\"}}\""
+            "command": "jq -cn --arg pwd \"$(pwd)\" '{hookSpecificOutput: {hookEventName: \"PreToolUse\", additionalContext: (\"PWD=\" + $pwd)}}'"
           },
           {
             "type": "command",
