@@ -10,6 +10,17 @@
       ]
     }
   ],
+  "SessionEnd": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./debug.sh"
+        }
+      ]
+    }
+  ],
   "PreToolUse": [
     {
       "matcher": "*",
@@ -22,6 +33,61 @@
     }
   ],
   "PostToolUse": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./debug.sh"
+        }
+      ]
+    }
+  ],
+  "PreCompact": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./debug.sh"
+        }
+      ]
+    }
+  ],
+  "UserPromptSubmit": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./debug.sh"
+        }
+      ]
+    }
+  ],
+  "Notification": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./debug.sh"
+        }
+      ]
+    }
+  ],
+  "Stop": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./debug.sh"
+        }
+      ]
+    }
+  ],
+  "SubagentStop": [
     {
       "matcher": "*",
       "hooks": [

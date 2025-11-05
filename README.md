@@ -83,12 +83,21 @@ Logs all hook events to JSONL files for debugging and development purposes.
 When developing plugins or debugging hook behavior, it's useful to see exactly what data is being passed to hooks. This plugin captures all hook events and saves them to files for inspection.
 
 **How it works:**
-The plugin hooks into all available hook events (`SessionStart`, `PreToolUse`, `PostToolUse`) and logs the complete input JSON to `~/.claude/debug-logs/{hook_event_name}.jsonl`. Each log entry includes a timestamp. The plugin always exits successfully (exit 0) so it never interferes with Claude's normal operation.
+The plugin hooks into all 9 available hook events and logs the complete input JSON to `~/.claude/debug-logs/{hook_event_name}.jsonl`. Each log entry includes a timestamp. The plugin always exits successfully (exit 0) so it never interferes with Claude's normal operation.
 
-**Log files:**
-- `~/.claude/debug-logs/SessionStart.jsonl`
-- `~/.claude/debug-logs/PreToolUse.jsonl`
-- `~/.claude/debug-logs/PostToolUse.jsonl`
+**Supported hook events:**
+- `SessionStart` - Session initialization/resumption
+- `SessionEnd` - Session termination
+- `PreToolUse` - Before tool execution
+- `PostToolUse` - After tool execution
+- `PreCompact` - Before conversation compaction
+- `UserPromptSubmit` - When user submits prompts
+- `Notification` - Claude Code notifications
+- `Stop` - Main agent response completion
+- `SubagentStop` - Subagent (Task tool) completion
+
+**Log files location:**
+- `~/.claude/debug-logs/{hook_event_name}.jsonl`
 
 **Installation:**
 ```bash
