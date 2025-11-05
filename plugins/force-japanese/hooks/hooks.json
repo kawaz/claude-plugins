@@ -1,13 +1,15 @@
 {
-  "SessionStart": [
-    {
-      "matcher": "compact",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "./force-japanese.sh"
-        }
-      ]
-    }
-  ]
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./force-japanese.sh"
+          }
+        ]
+      }
+    ]
+  }
 }
