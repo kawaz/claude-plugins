@@ -26,20 +26,23 @@ command=${command%%[\'\"]*}
 # コマンドが空の場合は何もチェックしない
 [[ -z "$command" ]] && exit 0
 
+# コマンド区切りパターン（行頭 or シェル区切り文字の後）
+CMD_PREFIX='(^|[|&;({][[:space:]]*)'
+
 # UV に置き換えを推奨
-if [[ $command =~ (^| )pip3?.*\ install( ) ]]; then
+if [[ $command =~ ${CMD_PREFIX}pip3?.*\ install([[:space:]]|$) ]]; then
     suggest_deny "Use 'uv add' instead of pip install"
 fi
 
-if [[ $command =~ (^| )python.*\ -m\ venv( ) ]]; then
+if [[ $command =~ ${CMD_PREFIX}python.*\ -m\ venv([[:space:]]|$) ]]; then
     suggest_deny "Use 'uv init' instead of python -m venv"
 fi
 
-if [[ $command =~ (^| )virtualenv( ) ]]; then
+if [[ $command =~ ${CMD_PREFIX}virtualenv([[:space:]]|$) ]]; then
     suggest_deny "Use 'uv venv' instead of virtualenv"
 fi
 
-if [[ $command =~ (^| )pipx( ) ]]; then
+if [[ $command =~ ${CMD_PREFIX}pipx([[:space:]]|$) ]]; then
     suggest_deny "Use 'uvx' instead of pipx"
 fi
 

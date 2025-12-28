@@ -26,18 +26,21 @@ command=${command%%[\'\"]*}
 # コマンドが空の場合は何もチェックしない
 [[ -z "$command" ]] && exit 0
 
+# コマンド区切りパターン（行頭 or シェル区切り文字の後）
+CMD_PREFIX='(^|[|&;({][[:space:]]*)'
+
 # Bun に置き換えを推奨
-if [[ $command =~ (^| )(npx|npm\ x|npm\ exec)( ) ]]; then
+if [[ $command =~ ${CMD_PREFIX}(npx|npm\ x|npm\ exec)([[:space:]]|$) ]]; then
     suggest_deny "Use 'bunx' instead of npx, npm x, or npm exec"
 fi
 
-# npm version は許可
-if [[ $command =~ npm\ version ]]; then
+# npm version と npm publish は許可（bun に代替機能がないため）
+if [[ $command =~ ${CMD_PREFIX}npm\ (version|publish) ]]; then
     exit 0
 fi
 
 # その他の npm コマンドは Bun を推奨
-if [[ $command =~ (^| )npm( ) ]]; then
+if [[ $command =~ ${CMD_PREFIX}npm([[:space:]]|$) ]]; then
     suggest_deny "Use 'bun' instead of npm"
 fi
 
