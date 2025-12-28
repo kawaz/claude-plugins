@@ -18,6 +18,7 @@ A collection of useful Claude Code plugins.
 - **[force-bun](./plugins/force-bun)** - Suggests Bun instead of npm/npx commands
 - **[force-uv](./plugins/force-uv)** - Suggests UV instead of pip/pipx/venv commands
 - **[hooks-debugger](./plugins/hooks-debugger)** - Logs all hook events to JSONL files for debugging
+- **[claude-session-analysis](https://github.com/kawaz/claude-session-analysis)** - Analyze session files to view timeline, file operations, and version diffs
 
 ## Development
 

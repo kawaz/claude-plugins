@@ -52,58 +52,6 @@ plugins/{plugin-name}/.claude-plugin/plugin.json
 
 バージョン番号を更新せずに Git に push しても、Claude Code 側で `/plugin` コマンドを使って更新しても、**古いバージョンのまま**として認識され、実際のファイルが更新されません。
 
-## フックスクリプトのパス指定
-
-`hooks/hooks.json` 内でコマンドを指定する際は、**`${CLAUDE_PLUGIN_ROOT}` 環境変数を使用**してください。
-
-フックはプロジェクトのルートディレクトリ（`$CLAUDE_PROJECT_DIR`）で実行されるため、相対パス（`./hooks/script.sh`）ではスクリプトを見つけることができません。`${CLAUDE_PLUGIN_ROOT}` を使用することで、プラグインのインストール場所（`~/.claude/plugins/marketplaces/...`）を正しく参照できます。
-
-### 正しい例
-
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/force-bun.sh"  // ← CLAUDE_PLUGIN_ROOT を使用
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-### 間違った例
-
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "./hooks/force-bun.sh"  // ← 相対パスは NG（スクリプトが見つからない）
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-### 利用可能な環境変数
-
-- `${CLAUDE_PLUGIN_ROOT}` - プラグインディレクトリの絶対パス（プラグインのフックでのみ利用可能）
-- `$CLAUDE_PROJECT_DIR` - プロジェクトのルートディレクトリの絶対パス（すべてのフックで利用可能）
-- `$CLAUDE_ENV_FILE` - 環境変数を永続化するファイルパス（SessionStart フックでのみ利用可能）
-
 ## 開発ワークフロー
 
 1. プラグインのファイルを編集
