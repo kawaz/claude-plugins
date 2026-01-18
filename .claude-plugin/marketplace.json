@@ -6,14 +6,9 @@
   },
   "metadata": {
     "description": "A collection of useful Claude Code plugins by kawaz",
-    "version": "0.3.2"
+    "version": "0.3.3"
   },
   "plugins": [
-    {
-      "name": "force-japanese",
-      "source": "./plugins/force-japanese",
-      "description": "Forces Claude Code to use Japanese language even after SessionStart:compact resets"
-    },
     {
       "name": "force-bun",
       "source": "./plugins/force-bun",
@@ -36,6 +31,14 @@
         "repo": "kawaz/claude-session-analysis"
       },
       "description": "Analyze Claude Code session files (.jsonl) to view timeline, file operations, and version diffs"
+    },
+    {
+      "name": "idea-storage",
+      "source": {
+        "source": "github",
+        "repo": "kawaz/idea-storage"
+      },
+      "description": "AI-assisted external memory for ideas, plans, and daily reflections"
     }
   ]
 }
