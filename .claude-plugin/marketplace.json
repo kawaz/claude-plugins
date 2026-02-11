@@ -39,6 +39,14 @@
         "repo": "kawaz/idea-storage"
       },
       "description": "AI-assisted external memory for ideas, plans, and daily reflections"
+    },
+    {
+      "name": "jj-guard",
+      "source": {
+        "source": "github",
+        "repo": "kawaz/claude-plugin-jj"
+      },
+      "description": "Prevents git misuse in jj-managed projects and provides jj expertise"
     }
   ]
 }
