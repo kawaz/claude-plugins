@@ -41,7 +41,7 @@
       "description": "AI-assisted external memory for ideas, plans, and daily reflections"
     },
     {
-      "name": "jj-guard",
+      "name": "jj",
       "source": {
         "source": "github",
         "repo": "kawaz/claude-plugin-jj"
