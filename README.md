@@ -14,7 +14,6 @@ A collection of useful Claude Code plugins.
 
 ## Available Plugins
 
-- **[force-japanese](./plugins/force-japanese)** - Forces Japanese language even after SessionStart:compact resets
 - **[force-bun](./plugins/force-bun)** - Suggests Bun instead of npm/npx commands
 - **[force-uv](./plugins/force-uv)** - Suggests UV instead of pip/pipx/venv commands
 - **[hooks-debugger](./plugins/hooks-debugger)** - Logs all hook events to JSONL files for debugging
@@ -31,7 +30,6 @@ kawaz/claude-plugins/
 ├── .claude-plugin/
 │   └── marketplace.json
 ├── plugins/
-│   ├── force-japanese/
 │   ├── force-bun/
 │   ├── force-uv/
 │   └── hooks-debugger/
