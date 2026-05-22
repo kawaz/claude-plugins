@@ -1,45 +1,16 @@
-# Kawaz's Claude Plugins
+# kawaz/claude-plugins (Deprecated)
 
-A collection of useful Claude Code plugins.
+このマーケットプレイスリポジトリは廃止予定です。  
+各プラグインは個別のリポジトリへ移行したため、このリポジトリはアーカイブまたは削除します。
 
-## Installation
+## Use individual plugin repositories
 
-```bash
-# Add marketplace
-/plugin marketplace add kawaz/claude-plugins
-
-# Install plugins (see each plugin's README for details)
-/plugin install <plugin-name>@kawaz-claude-plugins
-```
-
-## Available Plugins
-
-- **[force-bun](./plugins/force-bun)** - Suggests Bun instead of npm/npx commands
-- **[force-uv](./plugins/force-uv)** - Suggests UV instead of pip/pipx/venv commands
-- **[hooks-debugger](./plugins/hooks-debugger)** - Logs all hook events to JSONL files for debugging
-- **[claude-session-analysis](https://github.com/kawaz/claude-session-analysis)** - Analyze session files to view timeline, file operations, and version diffs
-
-## Development
-
-See [CLAUDE.md](./CLAUDE.md) for plugin development guidelines.
-
-### Repository Structure
-
-```
-kawaz/claude-plugins/
-├── .claude-plugin/
-│   └── marketplace.json
-├── plugins/
-│   ├── force-bun/
-│   ├── force-uv/
-│   └── hooks-debugger/
-├── CLAUDE.md
-└── README.md
-```
-
-## License
-
-MIT
+- [kawaz/claude-plugin-force-bun](https://github.com/kawaz/claude-plugin-force-bun)
+- [kawaz/claude-plugin-force-uv](https://github.com/kawaz/claude-plugin-force-uv)
+- [kawaz/claude-plugin-hooks-debugger](https://github.com/kawaz/claude-plugin-hooks-debugger)
+- [kawaz/claude-session-analysis](https://github.com/kawaz/claude-session-analysis)
+- [kawaz/idea-storage](https://github.com/kawaz/idea-storage)
+- [kawaz/claude-plugin-jj](https://github.com/kawaz/claude-plugin-jj)
 
 ## Author
 
